@@ -17,7 +17,7 @@ function App()
     useEffect(() =>
     {
         axios
-          .get(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=2020-01-04`)
+          .get(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`) // &date=2020-01-04
           .then((res) =>
           {
               //  Set card data
