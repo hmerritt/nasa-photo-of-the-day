@@ -1,9 +1,14 @@
 * {
-  font-size: 10.65%;
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+  padding-top: 60px;
+}
+
+p {
+  margin: 0;
 }
 
 
@@ -13,17 +18,17 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 847px) {
   .container {
     width: 750px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1067px) {
   .container {
     width: 970px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1267px) {
   .container {
     width: 1170px;
   }
