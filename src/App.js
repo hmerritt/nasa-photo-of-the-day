@@ -1,16 +1,48 @@
 import React, { useState, useEffect } from "react";
+import axios     from "axios";
 import Header    from "./components/Header/Header";
 import ImageCard from "./components/ImageCard/ImageCard";
 import "./App.css";
 
 function App()
 {
+
+    //  image cards state
+    const [imageCards, setImageCards] = useState();
+
+    //  NASA API key
+    const nasaApiKey = "UvWwSqvr2BI0qwRgLHV3MzQVzYYkIOh40wY6yhWJ";
+
+    //  Get APOD data from NASA API
+    useEffect(() =>
+    {
+        axios
+          .get(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`)
+          .then((res) =>
+          {
+              //  Set card data
+              setImageCards(
+                  <ImageCard
+                      imgSrc={res.data.hdurl}
+                      title={res.data.title}
+                      copyright={res.data.copyright}
+                      date={res.data.date}
+                      description={res.data.explanation}
+                  />
+              );
+          })
+          .catch((err) =>
+          {
+              console.error("Failed to get APOD from Nasa API: ", err);
+          });
+    }, []);
+
     return (
         <>
             <Header />
             <div className="container">
                 <div className="imageCards-container">
-                    <ImageCard src="https://apod.nasa.gov/apod/image/2001/IC405hp_ColesHelm_3447.jpg" />
+                    {imageCards}
                 </div>
             </div>
         </>
