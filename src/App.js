@@ -8,7 +8,7 @@ function App()
 {
 
     //  image cards state
-    const [imageCards, setImageCards] = useState();
+    const [imageCards, setImageCards] = useState(<ImageCard title="Loading..." />);
 
     //  NASA API key
     const nasaApiKey = "UvWwSqvr2BI0qwRgLHV3MzQVzYYkIOh40wY6yhWJ";
@@ -17,7 +17,7 @@ function App()
     useEffect(() =>
     {
         axios
-          .get(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`)
+          .get(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=2020-01-04`)
           .then((res) =>
           {
               //  Set card data
