@@ -6,7 +6,7 @@ function ImageCard(props)
 
     return (
         <div className="imageCard">
-            <img src={props.imgSrc} className="imageCard-img" />
+            <img src={props.imgSrc} className="imageCard-img" alt={"Astronomy Picture of the Day // " + props.date} />
             <div className="imageCard-info">
                 <p className="imageCard-info-title">{props.title}</p>
                 <p className="imageCard-info-dateCopyright">
