@@ -1,22 +1,22 @@
 import React from "react";
 import "./ImageCard.css";
 
-function ImageCard(props)
+export default function ImageCard(props)
 {
+
+    const card = props.card;
 
     return (
         <div className="imageCard">
-            <img src={props.imgSrc} className="imageCard-img" />
+            <img src={card.imgSrc} className="imageCard-img" />
             <div className="imageCard-info">
-                <p className="imageCard-info-title">{props.title}</p>
+                <p className="imageCard-info-title">{card.title}</p>
                 <p className="imageCard-info-dateCopyright">
-                    <span>{props.copyright}</span>
-                    <span> @ {props.date}</span>
+                    <span>{card.copyright}</span>
+                    <span> @ {card.date}</span>
                 </p>
-                <p className="imageCard-info-description">{props.description}</p>
+                <p className="imageCard-info-description">{card.description}</p>
             </div>
         </div>
     );
 }
-
-export default ImageCard;
