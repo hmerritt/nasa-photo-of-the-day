@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios     from "axios";
-import moment    from "moment"
+import moment    from "moment";
+import tz        from "moment-timezone";
 import Header    from "./components/Header/Header";
 import ImageCard from "./components/ImageCard/ImageCard";
 import Apod      from "./components/Apod/Apod";
@@ -19,7 +20,7 @@ export default function App()
     */
     function date(days)
     {
-        return moment().subtract(days, 'days').format('YYYY-MM-DD');
+        return moment().tz('America/New_York').subtract(days, 'days').format('YYYY-MM-DD');
     }
 
 
