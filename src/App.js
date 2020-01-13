@@ -10,11 +10,36 @@ import "./App.css";
 
 export default function App()
 {
+	
+	/*
+	*  APOD elements to be rendered
+	*  - get 3 on page load
+	*/
+	const [apodElements, setApodElements] = useState([
+		<Apod date={date(0)} />,
+		<Apod date={date(1)} />,
+		<Apod date={date(2)} />
+	]);
+	
+	
+	/*
+	*  Add APOD element to render
+	*
+	* @param number days
+	*/
+	function addApod(daysAgo)
+	{
+		//  Add new Apod to elements array
+		//  Update Apod state
+	    const updateApodElements = [...apodElements];
+		updateApodElements.push(<Apod key={daysAgo} date={date(daysAgo)} />);
+		setApodElements(updateApodElements);
+	}
 
     /*
     * Date (YYYY-MM-DD)
     *
-    * @param days number - number of days ago to get date (0 is today)
+    * @param number days - number of days ago to get date (0 is today)
     *
     * @return date
     */
@@ -22,6 +47,19 @@ export default function App()
     {
         return moment().tz('America/New_York').subtract(days, 'days').format('YYYY-MM-DD');
     }
+	
+	
+    /*
+    *  Infinite scroll - Add more Apods as user scrolls to bottom of page
+    */
+    window.onscroll = function(ev)
+    {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight)
+        {
+			//  Add next Apod - x no. days ago
+            addApod(apodElements.length);
+        }
+    };
 
 
     return (
@@ -29,11 +67,7 @@ export default function App()
             <Header />
             <div className="container">
                 <div className="imageCards-container">
-                    <Apod date={date(0)} />
-                    <Apod date={date(1)} />
-                    <Apod date={date(2)} />
-                    <Apod date={date(3)} />
-                    <Apod date={date(4)} />
+					{apodElements}
                 </div>
             </div>
         </>
