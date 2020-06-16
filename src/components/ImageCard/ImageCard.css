@@ -1,0 +1,37 @@
+
+.imageCards-container {
+  position: relative;
+}
+
+.imageCard {
+  width: 70%;
+  margin: 40px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0px 2px 40px 0px rgba(0,0,0, .2);
+     -moz-box-shadow: 0px 2px 40px 0px rgba(0,0,0, .2);
+      -ms-box-shadow: 0px 2px 40px 0px rgba(0,0,0, .2);
+          box-shadow: 0px 2px 40px 0px rgba(0,0,0, .2);
+}
+@media (max-width: 1068px) {
+  .imageCard {
+    width: 100%;
+  }
+}
+
+.imageCard-img {
+  width: 100%;
+}
+
+.imageCard-info {
+  padding: 40px;
+  font-size: 4rem;
+  text-align: justify;
+}
+
+.imageCard-info-description {
+  font-size: 1.8rem;
+  line-height: 1.3em;
+  margin-top: 20px;
+}
